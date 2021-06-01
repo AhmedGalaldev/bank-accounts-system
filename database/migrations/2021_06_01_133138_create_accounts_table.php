@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
             $table->foreign('bank_id')->references('id')->on('banks')->onDelete('cascade');
             $table->enum('type', ['Current account', 'Saving account','Credit account','Joint account']);
             $table->enum('currency',['USD','EURO','EGP','SAR']);
+            $table->enum('active',[0,1])->default(1);
             $table->decimal('amount',8,2);
             $table->timestamps();
         });
